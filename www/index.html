@@ -115,11 +115,18 @@
         }
 
         function searchLT(){
-        let TestDataClass = ncmb.DataStore(db); 
-        let levelLT= parseInt($("#update").val()); 
-        TestDataClass.lessThan("#update", LT).fetchAll() 
+        //let TestDataClass = ncmb.DataStore(db); 
+        let levelLT= parseInt($("#data2").val()); 
+        UTdata.lessThan("data", levelLT).fetchAll() 
         .then(function(results){
-            showResults(results);
+            let msg = "";
+                    for (let i = 0; i < results.length; i++) {
+                        msg += results[i].get(key) + "<br>";
+                    }
+                    $("#display").removeClass();
+                    $("#display").addClass("text-light");
+                    $("#display").addClass("bg-primary");
+                    $("#display").html(msg);
         })
     }
     </script>
@@ -129,6 +136,7 @@
     <h1 class="text-light bg-secondary">mbaas update</h1>
     <div>
         <input type="text" id="data" placeholder="スコア">
+        <input type="text" id="data2" placeholder="比較">
         <a onclick="enterData()" class="btn btn-outline-secondary" role="button">Enter</a>
     </div>
     <div>
