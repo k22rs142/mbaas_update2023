@@ -115,9 +115,10 @@
         }
 
         function searchLT(){
-        //let TestDataClass = ncmb.DataStore(db); 
+        //let UTdata = ncmb.DataStore(UpdateTest); 
+        //let levelLT= parseInt($("#data").val());
         let levelLT= parseInt($("#data2").val()); 
-        UTdata.lessThan("data", levelLT).fetchAll() 
+        UTdata.lessThan("score", levelLT).fetchAll() 
         .then(function(results){
             let msg = "";
                     for (let i = 0; i < results.length; i++) {
@@ -128,6 +129,11 @@
                     $("#display").addClass("bg-primary");
                     $("#display").html(msg);
         })
+        .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail:" + JSON.stringify(error));
+                })
     }
     </script>
 </head>
