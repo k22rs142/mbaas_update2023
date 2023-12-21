@@ -100,6 +100,28 @@
             })
         }
 
+        /*
+        function AlldeleteData(){
+            UTdata.count().fetchAll()
+            //UTdata.fetch()
+            .then(function(results) { 
+                for(let i = 0; i < results.count; i++){
+                    results.delete(); 
+                }
+            }) 
+            .then(function(results) { 
+                $("#display").removeClass();
+                $("#display").addClass("bg-success");
+                $("#display").html("dalete success"); 
+            }) 
+            .catch(function(error){ 
+                $("#display").removeClass();
+                $("#display").addClass("bg-warning");
+                $("#display").html("delete fail:" + JSON.stringify(error));
+            })
+        }
+        */
+
         function updateData() {
             UTdata.fetch() 
             .then(function(results) { 
@@ -176,6 +198,8 @@
         <a onclick="sortData()" class="btn btn-outline-secondary" role="button">Sort</a>
         <a onclick="countData()" class="btn btn-outline-secondary" role="button">Count</a>
         <a onclick="deleteData()" class="btn btn-outline-secondary" role="buton">Delete</a>
+
+        <a onclick="AlldeleteData()" class="btn btn-outline-secondary" role="buton">AllDelete</a>
 
         <a onclick="searchLT()" class="btn btn-outline-secondary" role="buton">&lt</a>
         <a onclick="searchGT()" class="btn btn-outline-secondary" role="buton">&gt</a>
