@@ -125,6 +125,24 @@
             })
         }
 
+        function totalData(){
+            UTdata.count().fetchAll()
+            .then(function(results) { 
+                let total = 0;
+                for(let i = 0; i < results.count; i++){
+                    total += results[i].get(key);
+                }
+                
+                $("#display").removeClass(); 
+                $("#display").addClass("bg-success"); 
+                $("#display").html(total); 
+                }) 
+            .catch(function(error){ 
+                    $("#display").removeClass(); 
+                    $("#display").addClass("bg-warning"); 
+                    $("#display").html("total fail:" + JSON.stringify(error)); })
+        }
+
         function searchLT(){
         //let UTdata = ncmb.DataStore(UpdateTest); 
         //let levelLT= parseInt($("#data").val());
